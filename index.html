@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Báo Cáo Tin Học 12 - Bài 17</title>
+
+    <style>
+
+        * {
+
+            box-sizing: border-box;
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+
+        body {
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+            line-height: 1.6;
+
+            color: #2c3e50;
+
+            background-color: #f4f6f9;
+
+            padding: 20px;
+
+        }
+
+
+        .container {
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            background: #ffffff;
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+        }
+
+
+        header {
+
+            text-align: center;
+
+            border-bottom: 3px solid #3498db;
+
+            padding-bottom: 20px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        header h1 {
+
+            color: #1a5276;
+
+            font-size: 24px;
+
+            margin-bottom: 8px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        header p {
+
+            color: #7f8c8d;
+
+            font-size: 14px;
+
+        }
+
+
+        section {
+
+            margin-bottom: 30px;
+
+        }
+
+
+        h2 {
+
+            color: #2980b9;
+
+            font-size: 18px;
+
+            margin-bottom: 12px;
+
+            border-left: 4px solid #3498db;
+
+            padding-left: 10px;
+
+        }
+
+
+        p {
+
+            margin-bottom: 10px;
+
+            text-align: justify;
+
+        }
+
+
+        .summary-table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            margin-top: 10px;
+
+        }
+
+
+        .summary-table th, .summary-table td {
+
+            border: 1px solid #dcdde1;
+
+            padding: 10px 12px;
+
+            text-align: left;
+
+            font-size: 14px;
+
+        }
+
+
+        .summary-table th {
+
+            background-color: #3498db;
+
+            color: #fff;
+
+        }
+
+
+        .summary-table tr:nth-child(even) {
+
+            background-color: #f8f9fa;
+
+        }
+
+
+        code {
+
+            background-color: #f1f2f6;
+
+            padding: 2px 6px;
+
+            border-radius: 4px;
+
+            font-family: Consolas, monospace;
+
+            color: #c0392b;
+
+            font-size: 13px;
+
+        }
+
+
+        .demo-card {
+
+            background: #fff;
+
+            border: 1px solid #e1e8ed;
+
+            border-radius: 10px;
+
+            padding: 20px;
+
+            margin-top: 15px;
+
+            display: flex;
+
+            gap: 20px;
+
+            align-items: center;
+
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+        }
+
+
+        .demo-image-box {
+
+            flex: 0 0 160px;
+
+            text-align: center;
+
+        }
+
+
+        .demo-image-box img {
+
+            width: 100%;
+
+            height: auto;
+
+            border-radius: 8px;
+
+            border: 3px solid #ccc;
+
+        }
+
+
+        .demo-content {
+
+            flex: 1;
+
+        }
+
+
+        /* Định nghĩa xung đột style giữa các bộ chọn */
+
+        img {
+
+            border-color: #95a5a6; /* Thẻ Tag (Màu xám) */
+
+        }
+
+
+        .photo-frame {
+
+            border-color: #e67e22; /* Class Selector (Màu cam) */
+
+        }
+
+
+        #featured-portrait {
+
+            border-color: #2980b9; /* ID Selector (Màu xanh dương) - Thắng Class và Tag */
+
+            box-shadow: 0 4px 12px rgba(41, 128, 185, 0.4);
+
+        }
+
+
+        .explanation {
+
+            background-color: #eaf2f8;
+
+            border-left: 4px solid #2980b9;
+
+            padding: 12px 15px;
+
+            margin-top: 15px;
+
+            font-size: 14px;
+
+            border-radius: 0 6px 6px 0;
+
+        }
+
+
+        footer {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+            color: #bdc3c7;
+
+            font-size: 13px;
+
+            border-top: 1px solid #e1e8ed;
+
+            padding-top: 15px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <header>
+
+            <h1>BÁO CÁO DỰ ÁN TIN HỌC 12 - BÀI 17</h1>
+
+            <p><strong>Chủ đề:</strong> Các mức ưu tiên của bộ chọn (Specificity) & Từ khóa <code>!important</code></p>
+
+        </header>
+
+
+        <section>
+
+            <h2>1. Nội dung trọng tâm lý thuyết</h2>
+
+            <p>Độ ưu tiên (Specificity) xác định quy tắc CSS nào được trình duyệt áp dụng khi có nhiều bộ chọn cùng hướng đến một phần tử HTML.</p>
+
+           
+
+            <table class="summary-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Bộ chọn (Selector)</th>
+
+                        <th>Cú pháp</th>
+
+                        <th>Điểm trọng số</th>
+
+                        <th>Mức độ ưu tiên</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td><strong>!important</strong></td>
+
+                        <td><code>property: value !important;</code></td>
+
+                        <td>Vô hiệu hóa trọng số</td>
+
+                        <td><strong>Cao nhất</strong></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td><strong>ID Selector</strong></td>
+
+                        <td><code>#id-name</code></td>
+
+                        <td>(0, 1, 0, 0)</td>
+
+                        <td>Thứ 2</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td><strong>Class Selector</strong></td>
+
+                        <td><code>.class-name</code></td>
+
+                        <td>(0, 0, 1, 0)</td>
+
+                        <td>Thứ 3</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td><strong>Tag Selector</strong></td>
+
+                        <td><code>img</code>, <code>p</code>, <code>div</code></td>
+
+                        <td>(0, 0, 0, 1)</td>
+
+                        <td>Thấp nhất</td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+        <section>
+
+            <h2>2. Minh họa xử lý xung đột Style trên trang web</h2>
+
+            <p>Thực nghiệm quy tắc xung đột giữa các bộ chọn trên cùng một đối tượng hình ảnh:</p>
+
+
+            <div class="demo-card">
+
+                <div class="demo-image-box">
+
+                    <img id="featured-portrait" class="photo-frame" src="https://api.iconify.design/lucide:camera.svg?color=%232980b9&width=120" alt="Camera Demo">
+
+                </div>
+
+                <div class="demo-content">
+
+                    <h3>Kết quả áp dụng Style:</h3>
+
+                    <p>• Viền ảnh hiện tại có màu: <strong style="color: #2980b9;">Xanh Dương (ID Selector thắng)</strong></p>
+
+                    <p>• <strong>Nguyên nhân:</strong> Cả <code>img</code> (Xám), <code>.photo-frame</code> (Cam) và <code>#featured-portrait</code> (Xanh) cùng định nghĩa màu viền, nhưng trình duyệt ưu tiên chọn ID do có độ ưu tiên cao hơn Class và Tag.</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="explanation">
+
+                <strong> Ghi chú khi làm báo cáo:</strong>
+
+                <ul style="margin-left: 20px; margin-top: 5px;">
+
+                    <li><strong>Thứ tự ưu tiên:</strong> ID &gt; Class &gt; Tag.</li>
+
+                    <li><strong>Từ khóa <code>!important</code>:</strong> Có quyền lực cao nhất, dùng để ghi đè mọi quy tắc khi thực sự cần thiết.</li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            <p>© Báo cáo bài tập nhóm — Bộ môn Tin học ứng dụng 12</p>
+
+        </footer>
+
+    </div>
+
+
+</body>
+
+</html>
